@@ -1,6 +1,10 @@
 import { SupportedWallet, WalletId, WalletManager, WalletProvider } from '@txnlab/use-wallet-react'
 import { SnackbarProvider } from 'notistack'
+import { useState } from 'react'
 import Home from './Home'
+import AuthPage from './pages/AuthPage'
+import FarmerDashboard from './pages/FarmerDashboard'
+import type { UserRole } from './pages/RoleSelection'
 import {
   getAlgodConfigFromViteEnvironment,
   getKmdConfigFromViteEnvironment,
@@ -33,6 +37,9 @@ if (import.meta.env.VITE_ALGOD_NETWORK === 'localnet') {
 export default function App() {
   const algodConfig = getAlgodConfigFromViteEnvironment()
 
+  // No user is signed in when the app first opens.
+  const [role, setRole] = useState<UserRole | null>(null)
+
   const walletManager = new WalletManager({
     wallets: supportedWallets,
     defaultNetwork: algodConfig.network,
@@ -50,10 +57,35 @@ export default function App() {
     },
   })
 
+  const logout = () => {
+    setRole(null)
+  }
+
   return (
     <SnackbarProvider maxSnack={3}>
       <WalletProvider manager={walletManager}>
-        <Home />
+        {!role && (
+          <AuthPage
+            onAuthenticated={(selectedRole) => setRole(selectedRole)}
+          />
+        )}
+
+        {role === 'farmer' && (
+          <FarmerDashboard onSwitchRole={logout} />
+        )}
+
+        {role === 'trader' && (
+          <div className="relative">
+            <button
+              onClick={logout}
+              className="fixed right-4 top-4 z-[100] rounded-full border border-white/40 bg-emerald-950 px-4 py-2 text-sm font-bold text-white shadow-lg transition hover:bg-emerald-800"
+            >
+              Sign out
+            </button>
+
+            <Home />
+          </div>
+        )}
       </WalletProvider>
     </SnackbarProvider>
   )

@@ -1,7 +1,7 @@
 # Secrets
 .env
 .env.*
-!.env.example
+!**/.env.example
 
 # Dependencies
 node_modules/
@@ -15,11 +15,7 @@ __pycache__/
 *.pyc
 .venv/
 
-# Editor files
+# Editor and local tool files
 .vscode/
 .idea/
-
-# Local IDE and AlgoKit generated files
-.idea/
 .algokit/
-frontend/.idea//frontend/.idea/
