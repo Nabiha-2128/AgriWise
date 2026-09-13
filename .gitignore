@@ -18,7 +18,7 @@ venv/
 
 # Editor and local tool files
 .vscode/
-.idea/
+**/.idea/
 .algokit/
 
 # Generated runtime files

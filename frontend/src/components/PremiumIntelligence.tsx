@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useWallet } from '@txnlab/use-wallet-react'
-import { fetchWeatherWithPayment } from '../utils/weatherApi'
+import { fetchPremiumWithPayment } from '../utils/x402Api'
 
 type PremiumData = {
   farmerId: string
@@ -55,7 +55,7 @@ const PremiumIntelligence: React.FC = () => {
       }
 
       setPaymentStatus('Waiting for approval in Pera Wallet...')
-      const data = await fetchWeatherWithPayment(premiumUrl, signer)
+      const data = await fetchPremiumWithPayment(premiumUrl, signer)
 
       setPremiumData(data)
       setPaymentStatus('Payment settled on Algorand TestNet.')
