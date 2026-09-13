@@ -1,140 +1,16 @@
-type FarmerDashboardProps = {
-  onSwitchRole: () => void
-}
+import { useState } from 'react'
 
-const FarmerDashboard = ({ onSwitchRole }: FarmerDashboardProps) => {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-lime-50 via-emerald-50 to-teal-100 p-4 md:p-8">
-      <main className="mx-auto max-w-7xl">
-        <header className="mb-6 flex flex-col gap-4 rounded-3xl bg-emerald-900 p-6 text-white shadow-xl md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-sm font-semibold tracking-widest text-emerald-200">
-              FARMER DASHBOARD
-            </p>
-            <h1 className="mt-1 text-3xl font-bold">🌿 Hello, Asha</h1>
-            <p className="mt-2 text-emerald-100">
-              Here are the best actions for your farm today.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            <button className="rounded-full bg-white/15 px-4 py-2 text-sm font-semibold">
-              English | हिंदी | मराठी
-            </button>
-            <button className="rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-emerald-950">
-              🎙️ Ask by voice
-            </button>
-            <button
-              onClick={onSwitchRole}
-              className="rounded-full border border-white/40 px-4 py-2 text-sm font-semibold hover:bg-white/10"
-            >
-              Switch role
-            </button>
-          </div>
-        </header>
-
-        <section className="mb-6">
-          <p className="text-sm font-bold uppercase tracking-wider text-emerald-700">
-            AI action plan
-          </p>
-          <h2 className="mt-1 text-3xl font-bold text-slate-900">Today&apos;s Farm Actions</h2>
-        </section>
-
-        <section className="grid gap-5 md:grid-cols-2">
-          <article className="rounded-3xl border border-sky-200 bg-white p-6 shadow-lg">
-            <div className="flex items-start justify-between">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 text-3xl">
-                💧
-              </div>
-              <span className="rounded-full bg-sky-100 px-3 py-1 text-sm font-bold text-sky-800">
-                High priority
-              </span>
-            </div>
-
-            <h3 className="mt-5 text-2xl font-bold text-slate-900">Irrigate tomato plot</h3>
-            <p className="mt-2 text-slate-600">
-              Recommended at 6:00 AM tomorrow. Soil moisture is low and rainfall is unlikely.
-            </p>
-
-            <div className="mt-5 flex gap-3">
-              <div className="rounded-xl bg-slate-50 p-3">
-                <p className="text-xs font-semibold text-slate-500">Water needed</p>
-                <p className="mt-1 font-bold text-slate-900">1,200 L</p>
-              </div>
-              <div className="rounded-xl bg-slate-50 p-3">
-                <p className="text-xs font-semibold text-slate-500">AI confidence</p>
-                <p className="mt-1 font-bold text-emerald-700">89%</p>
-              </div>
-            </div>
-          </article>
-
-          <article className="rounded-3xl border border-lime-200 bg-white p-6 shadow-lg">
-            <div className="flex items-start justify-between">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-lime-100 text-3xl">
-                🌾
-              </div>
-              <span className="rounded-full bg-lime-100 px-3 py-1 text-sm font-bold text-lime-800">
-                Recommended
-              </span>
-            </div>
-
-            <h3 className="mt-5 text-2xl font-bold text-slate-900">Harvest tomatoes in 2 days</h3>
-            <p className="mt-2 text-slate-600">
-              Crop maturity is high and the local market price trend is favourable.
-            </p>
-
-            <div className="mt-5 flex gap-3">
-              <div className="rounded-xl bg-slate-50 p-3">
-                <p className="text-xs font-semibold text-slate-500">Expected price</p>
-                <p className="mt-1 font-bold text-slate-900">₹22.40 / kg</p>
-              </div>
-              <div className="rounded-xl bg-slate-50 p-3">
-                <p className="text-xs font-semibold text-slate-500">AI confidence</p>
-                <p className="mt-1 font-bold text-emerald-700">91%</p>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <section className="mt-6 grid gap-5 lg:grid-cols-3">
-          <article className="rounded-3xl bg-white p-6 shadow-lg">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-2xl">
-              🌱
-            </div>
-            <h3 className="mt-4 text-xl font-bold text-slate-900">Crop Health</h3>
-            <p className="mt-2 text-slate-600">
-              Tomato crop is healthy. Continue regular pest monitoring.
-            </p>
-            <p className="mt-4 font-bold text-emerald-700">Healthy ✓</p>
-          </article>
-
-          <article className="rounded-3xl bg-white p-6 shadow-lg">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-2xl">
-              🛒
-            </div>
-            <h3 className="mt-4 text-xl font-bold text-slate-900">Buy Wholesale Materials</h3>
-            <p className="mt-2 text-slate-600">
-              Compare verified suppliers for seeds, fertiliser, and equipment.
-            </p>
-            <button className="mt-4 rounded-xl bg-amber-500 px-4 py-2 font-bold text-white hover:bg-amber-600">
-              Compare suppliers
-            </button>
-          </article>
-
-          <article className="rounded-3xl bg-white p-6 shadow-lg">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-100 text-2xl">
-              ☁️
-            </div>
-            <h3 className="mt-4 text-xl font-bold text-slate-900">Weather Alert</h3>
-            <p className="mt-2 text-slate-600">
-              70% chance of rain in the next 48 hours. Plan irrigation accordingly.
-            </p>
-            <p className="mt-4 font-bold text-purple-700">Rain expected</p>
-          </article>
-        </section>
-      </main>
-    </div>
-  )
-}
-
-export default FarmerDashboard
+type Props = { onSwitchRole: () => void }
+type Page = 'My Farm' | 'Ask AgriWise' | 'Farm Store' | 'My Produce' | 'Buyer Requests'
+type IconName = 'farm' | 'mic' | 'store' | 'produce' | 'requests' | 'volume' | 'plus' | 'arrow' | 'search'
+const Icon = ({name,size=18}:{name:IconName,size?:number}) => { const c={width:size,height:size,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:1.8,strokeLinecap:'round' as const,strokeLinejoin:'round' as const}; const p:Record<IconName,JSX.Element>={farm:<><path d="M3 20h18"/><path d="m5 20 1-9 6-4 6 4 1 9"/><path d="M9 20v-5h6v5"/></>,mic:<><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></>,store:<><path d="M4 10h16v10H4z"/><path d="M3 10 5 4h14l2 6"/><path d="M8 14h8v6H8z"/></>,produce:<><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></>,requests:<><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/><path d="m16 16 2 2 3-3"/></>,volume:<><path d="M4 10v4h4l5 4V6l-5 4z"/><path d="M17 9a5 5 0 0 1 0 6M19.5 6.5a9 9 0 0 1 0 11"/></>,plus:<><path d="M12 5v14M5 12h14"/></>,arrow:<><path d="M5 12h13"/><path d="m13 6 6 6-6 6"/></>,search:<><circle cx="10.8" cy="10.8" r="6.3"/><path d="m16 16 4.5 4.5"/></>}; return <svg {...c}>{p[name]}</svg> }
+const Verified=()=> <span className="aw-badge aw-badge-green"><span>✓</span> Verified Farmer</span>
+const Trusted=()=> <span className="aw-badge aw-badge-blue"><span>✓</span> Trusted Trader</span>
+function Header({onSwitchRole,onAsk}:{onSwitchRole:()=>void;onAsk:()=>void}){return <header className="aw-header"><div className="aw-brand-block"><div className="aw-brand-kicker">AGRICULTURE MARKET INTELLIGENCE</div><div className="aw-brand-title">AgriWise</div><div className="aw-brand-subtitle">Better decisions for farmers. Better sourcing for traders.</div></div><div className="aw-header-actions"><span className="aw-language">English | हिंदी | मराठी</span><span className="aw-role-pill aw-role-farmer">Farmer Portal</span><button className="aw-ghost-dark" onClick={onAsk}><Icon name="mic" size={15}/> Ask AgriWise</button><button className="aw-signout" onClick={onSwitchRole}>Sign out</button></div></header>}
+function SideNav({page,setPage}:{page:Page;setPage:(p:Page)=>void}){const items:[Page,IconName][]=[['My Farm','farm'],['Ask AgriWise','mic'],['Farm Store','store'],['My Produce','produce'],['Buyer Requests','requests']];return <aside className="aw-side-nav"><div className="aw-nav-label">FARMER WORKSPACE</div>{items.map(([x,i])=><button key={x} className={page===x?'active':''} onClick={()=>setPage(x)}><Icon name={i}/><span>{x}</span></button>)}</aside>}
+function FarmHome(){return <div className="aw-page"><section className="aw-profile-card"><img src="/images/farmer-portrait.png" alt="Farmer profile"/><div><div className="aw-eyebrow">MY FARM</div><h1>Asha Devi</h1><Verified/><p>Nashik, Maharashtra</p></div><button className="aw-outline-button">Edit profile</button></section><div className="aw-stat-grid"><div className="aw-stat"><small>Active crops</small><strong>3</strong><span>Tomato, onion and grapes</span></div><div className="aw-stat"><small>Listed produce</small><strong>1,200 kg</strong><span>Currently available</span></div><div className="aw-stat"><small>Buyer requests</small><strong>8</strong><span>Matched to your produce</span></div></div><div className="aw-section-head"><h2>Farm overview</h2><button className="aw-listen" onClick={()=>window.speechSynthesis?.speak(new SpeechSynthesisUtterance('Farm overview. Tomato crop, twelve hundred kilograms, harvest in six days.'))}><Icon name="volume" size={15}/> Listen</button></div><div className="aw-two-col"><div className="aw-card"><div className="aw-eyebrow">CURRENT CROP</div><h3>Tomato crop</h3><strong className="aw-big-number">1,200 kg</strong><p className="aw-muted">Harvest in 6 days · ₹24/kg</p></div><div className="aw-card aw-ai-card"><div className="aw-eyebrow">AI RECOMMENDATION</div><h3>Good time to prepare for harvest</h3><p>Market demand is trending upward. Consider listing your tomatoes this week.</p></div></div></div>}
+function VoicePage(){const [listening,setListening]=useState(false),[text,setText]=useState('');const start=()=>{setListening(true);const SR=(window as any).SpeechRecognition||(window as any).webkitSpeechRecognition;if(SR){const r=new SR();r.lang='en-IN';r.onresult=(e:any)=>setText(e.results[0][0].transcript);r.onend=()=>setListening(false);r.start()}else setTimeout(()=>setListening(false),1200)};return <div className="aw-page"><div className="aw-eyebrow">AGRIWISE ASSISTANT</div><h1>Ask AgriWise</h1><p className="aw-lead">Speak naturally about your farm, or use the text form below.</p><div className="aw-voice-panel"><button className={listening?'aw-mic listening':'aw-mic'} onClick={start}><Icon name="mic" size={30}/></button><h2>{listening?'Listening…':'Tap to speak'}</h2><p>{listening?'I’m listening to your farming question.':'Voice assistance in your preferred language.'}</p>{text&&<div className="aw-transcript">“{text}”</div>}</div><div className="aw-card"><label className="aw-field-label">Text-form fallback<textarea value={text} onChange={e=>setText(e.target.value)} placeholder="e.g. When should I harvest my tomatoes?"/></label><button className="aw-primary">Ask AgriWise <Icon name="arrow" size={15}/></button></div></div>}
+function ProducePage(){const [photo,setPhoto]=useState(''),[consent,setConsent]=useState(true),[saved,setSaved]=useState(false);return <div className="aw-page"><div className="aw-eyebrow">MY PRODUCE</div><h1>List your produce</h1><p className="aw-lead">Share a harvest listing with buyers and control how your data is used.</p><div className="aw-two-col"><div className="aw-card"><div className="aw-form-grid"><label>Crop<input placeholder="Tomato"/></label><label>Quantity<input placeholder="1,200 kg"/></label><label>Price<input placeholder="₹24 / kg"/></label><label>Harvest date<input type="date"/></label></div><label className="aw-field-label">Photo<div className="aw-upload"><input type="file" accept="image/*" onChange={e=>{const f=e.target.files?.[0];if(f)setPhoto(URL.createObjectURL(f))}}/>{photo?<img src={photo} alt="Produce preview"/>:<span>Add crop photo</span>}</div></label><button className="aw-primary" onClick={()=>setSaved(true)}>{saved?'Listing saved ✓':'Publish listing'}</button></div><div className="aw-card"><div className="aw-consent-head"><div><h3>Data-sharing consent</h3><p>Allow AgriWise to share your produce details with matched buyers.</p></div><button className={consent?'aw-toggle on':'aw-toggle'} onClick={()=>setConsent(!consent)} aria-label="Toggle data sharing"><span/></button></div><div className="aw-consent-note">{consent?'✓ Consent active — buyers can discover this listing.':'Consent off — listing data stays private.'}</div><div className="aw-divider"/><div className="aw-listing"><div className="aw-listing-icon">T</div><div><b>Tomato · 1,200 kg</b><div><Verified/><span className="aw-status-text">Listing active</span></div></div></div></div></div></div>}
+function Store(){return <div className="aw-page"><div className="aw-eyebrow">FARM STORE</div><h1>Wholesale essentials</h1><p className="aw-lead">Compare farm inputs from trusted suppliers.</p><div className="aw-store-grid">{[['Quality seeds','From ₹480'],['Organic fertiliser','From ₹720'],['Farm equipment','From ₹1,250']].map(x=><div className="aw-card aw-store-card" key={x[0]}><div className="aw-store-icon">{x[0][0]}</div><h3>{x[0]}</h3><p>{x[1]}</p><button className="aw-outline-button">View options <Icon name="arrow" size={14}/></button></div>)}</div></div>}
+function Buyers(){return <div className="aw-page"><div className="aw-eyebrow">BUYER REQUESTS</div><h1>Requests for your produce</h1><p className="aw-lead">Review buyers and respond to matching demand.</p><div className="aw-deal-list">{[['Sharma Traders','500 kg tomatoes','₹25/kg'],['FreshCart Wholesale','300 kg tomatoes','₹24/kg'],['Nashik Foods','800 kg tomatoes','₹23/kg']].map(r=><div className="aw-card aw-request" key={r[0]}><div><h3>{r[0]} <Trusted/></h3><p>Request for {r[1]}</p></div><div><b>{r[2]}</b><button className="aw-primary aw-small">Review</button></div></div>)}</div></div>}
+export default function FarmerDashboard({onSwitchRole}:Props){const [page,setPage]=useState<Page>('My Farm');const content=page==='My Farm'?<FarmHome/>:page==='Ask AgriWise'?<VoicePage/>:page==='Farm Store'?<Store/>:page==='My Produce'?<ProducePage/>:<Buyers/>;return <div className="aw-app"><main className="aw-container"><Header onSwitchRole={onSwitchRole} onAsk={()=>setPage('Ask AgriWise')}/><div className="aw-workspace"><SideNav page={page} setPage={setPage}/><div className="aw-content">{content}</div></div></main><div className="aw-mobile-nav">{(['My Farm','Ask AgriWise','Farm Store','My Produce','Buyer Requests'] as Page[]).map((x,i)=><button key={x} className={page===x?'active':''} onClick={()=>setPage(x)}><Icon name={(['farm','mic','store','produce','requests'] as IconName[])[i]} size={16}/><span>{x}</span></button>)}</div></div>}
