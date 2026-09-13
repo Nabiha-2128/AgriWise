@@ -14,8 +14,12 @@ build/
 __pycache__/
 *.pyc
 .venv/
+venv/
 
 # Editor and local tool files
 .vscode/
 .idea/
 .algokit/
+
+# Generated runtime files
+ai/initial_match.txt
