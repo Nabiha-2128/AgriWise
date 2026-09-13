@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useWallet } from '@txnlab/use-wallet-react'
-import { fetchPremiumWithPayment } from '../utils/x402Api'
+import { fetchWeatherWithPayment } from '../utils/weatherApi'
 
 type PremiumData = {
   farmerId: string
@@ -55,7 +55,7 @@ const PremiumIntelligence: React.FC = () => {
       }
 
       setPaymentStatus('Waiting for approval in Pera Wallet...')
-      const data = await fetchPremiumWithPayment(premiumUrl, signer)
+      const data = await fetchWeatherWithPayment(premiumUrl, signer)
 
       setPremiumData(data)
       setPaymentStatus('Payment settled on Algorand TestNet.')
@@ -82,7 +82,7 @@ const PremiumIntelligence: React.FC = () => {
             </div>
 
             <h2 className="text-2xl font-bold text-slate-900">Farmer A · Asha Devi</h2>
-            <p className="mt-1 text-slate-600">🍅 Tomato · Nashik, Maharashtra</p>
+            <p className="mt-1 text-slate-600">Tomato · Nashik, Maharashtra</p>
             <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600">
               View basic crop availability free of charge, or unlock verified quality,
               harvest timing, reliability, and logistics intelligence.

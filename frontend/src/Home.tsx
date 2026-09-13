@@ -114,7 +114,7 @@ const Home = () => {
               </div>
             ) : (
               <div className="rounded-3xl border border-emerald-200 bg-emerald-50 p-8 text-center shadow-lg">
-                <div className="mb-3 text-4xl">🔐</div>
+                <div className="mb-3 text-sm font-bold uppercase tracking-widest text-emerald-700">Secure access</div>
                 <h2 className="text-xl font-bold text-emerald-950">
                   Connect your wallet to view premium intelligence
                 </h2>
