@@ -82,7 +82,7 @@ const PremiumIntelligence: React.FC = () => {
             </div>
 
             <h2 className="text-2xl font-bold text-slate-900">Farmer A · Asha Devi</h2>
-            <p className="mt-1 text-slate-600">🍅 Tomato · Nashik, Maharashtra</p>
+            <p className="mt-1 text-slate-600">Tomato · Nashik, Maharashtra</p>
             <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600">
               View basic crop availability free of charge, or unlock verified quality,
               harvest timing, reliability, and logistics intelligence.

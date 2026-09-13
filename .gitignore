@@ -1,7 +1,7 @@
 # Secrets
 .env
 .env.*
-!.env.example
+!**/.env.example
 
 # Dependencies
 node_modules/
@@ -14,12 +14,12 @@ build/
 __pycache__/
 *.pyc
 .venv/
+venv/
 
-# Editor files
+# Editor and local tool files
 .vscode/
-.idea/
-
-# Local IDE and AlgoKit generated files
-.idea/
+**/.idea/
 .algokit/
-frontend/.idea//frontend/.idea/
+
+# Generated runtime files
+ai/initial_match.txt
